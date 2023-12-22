@@ -773,6 +773,7 @@ fetch('https://reqres.in/api/users?page=2')
     console.log(error);
 })
 
+
 //  2nd Way
 
 async function MakeRequest()
@@ -799,6 +800,5 @@ MakeRequest();
 
 //  1. (Computer) Client/Browser side--> Send Request to the server side-->(Frontend)
 //  2. (Computer) Server side--> Response/Give some data for Client side-->(Backend)
-
 
 
