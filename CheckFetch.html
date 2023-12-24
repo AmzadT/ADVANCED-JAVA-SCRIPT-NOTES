@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+
+
+<script>
+var display = document.querySelector("#container");
+
+function DisplayData(ProductLists){
+   
+    ProductLists.forEach(function(product){
+        
+        // create products card which will contain all the products details.
+        var ProductCards = document.createElement("div");
+        ProductCards.className = "product-card";
+
+        // create products image element.
+        var ProductImage = document.createElement("img");
+        ProductImage.src = product.image;
+
+        // create products title element.
+        var ProductTitle = document.createElement("p");
+        ProductTitle.textContent = product.title;
+
+        // create products price element.
+        var ProductPrice = document.createElement("p");
+        ProductPrice.textContent = `Price : USD ${product.price}`;
+
+        // create products category element.
+        var ProductCategory = document.createElement("p");
+        ProductCategory.textContent = `Category : ${product.category}`;
+
+        // create pruducts rating element.
+        var ProductRating = document.createElement("p");
+        ProductRating.textContent = `Rating : ${product.rating.rate}`;
+
+        // create products reviews element.
+        var ProductReview = document.createElement("p");
+        ProductReview.textContent = `Review : ${product.rating.count}`;
+
+        ProductCards.append(
+        ProductImage,
+        ProductTitle,
+        ProductPrice,
+        ProductCategory,
+        ProductRating,
+        ProductReview);
+
+        display.append(ProductCards);
+
+    })
+
+}
+
+fetch("https://fakestoreapi.com/products")  //  fetch(URL)  //  fake backend
+.then(function(response){
+    // console.log(response);
+    return response.json();  //  this .Json() basically means in ordered to convert Data into the format, which JavaScript can easily understand (Json Data, format).
+})
+.then(function(finalResponse){
+    DisplayData(finalResponse);  // here data format that can be javascript understand
+})
+.catch(function(error){
+    console.log("Your API Request is now fail some reasons",error);
+    display.textContent = "Something went wrong";
+})
+</script>

@@ -4,6 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <style>
+        #container{
+            display: grid;
+            gap: 20px;
+            grid-template-columns: repeat(3,1fr);
+        }
+
+        .product-card{
+            border: 1px dashed gray;
+            display: flex;
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            align-items: left;
+        }
+
+        .product-card > img{
+            height: 200px;
+            width: 200px;
+        }
+
+    </style>
 </head>
 <body>
     <div id="container"></div> // all the products will be display in this container (div)
